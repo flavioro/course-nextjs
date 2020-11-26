@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next'
 import { useEffect, useState } from 'react'
-// import { Title } from '../styles/pages/Home'
+
+import { Title } from '@/styles/pages/Home'
 import SEO from '@/components/SEO'
 
 interface IProduct {
@@ -26,7 +27,7 @@ export default function Home({ recommendedProducts }: HomeProps) {
         shouldExcludeTitleSuffix
       />
       <section>
-        <h1>Products</h1>
+        <Title>Products</Title>
 
         <ul> 
           {recommendedProducts.map(recommendedProduct => {
@@ -45,7 +46,7 @@ export default function Home({ recommendedProducts }: HomeProps) {
 }
 
 export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
-  const fullUrl = `${process.env.API_URL}/recommended`
+  const fullUrl = `${process.env.NEXT_PUBLIC_API_URL}/recommended`
   // console.log(process.env.API_URL)
   const response = await fetch(fullUrl)
   const recommendedProducts = await response.json()
