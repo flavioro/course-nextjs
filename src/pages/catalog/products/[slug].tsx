@@ -7,8 +7,6 @@ const AddToCartModal = dynamic(
   {loading: () => <p>Loading...</p>}
 )
 
-
-
 export default function Products() {
   const router = useRouter()
   const [isAddToCartModalVisible, setIsAddToCartModalVisible] = useState(false)
